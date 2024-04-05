@@ -1,0 +1,15 @@
+<div class="container cardContainer" >
+    <div *ngFor="let item of items">
+        <div class="card-body cardWrapper" *ngIf="item.id == itemShowing">
+        <div class="left">
+            <audio controls>
+            <source src={{item.url}} type="audio/mpeg">
+            </audio>
+        </div>
+        <div class="right">
+            <h2>{{item.name}}</h2>
+        </div>
+        </div>
+    </div>
+</div>
+<div style="padding: 30px;"><button type="button" class="btn btn-primary" (click)="selectItem()">Generate</button></div>

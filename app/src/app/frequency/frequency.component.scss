@@ -1,0 +1,28 @@
+.cardWrapper{
+    padding: 20px;
+    border: 1px solid grey;
+    width: 540px;
+    display: flex;
+    .left{
+        flex: 0 0 400px;
+    }
+    .right{
+        flex: 0 0 100px;
+        background: #b8b8b8;
+        cursor: pointer;
+        text-align: center;
+        h2{
+            margin: auto;
+            text-align: center;
+            padding-top: 10px;
+            display: none;
+        }
+        &:hover{
+            h2{display: block;}
+            
+        }
+    }
+}
+
+.cardContainer{
+}
