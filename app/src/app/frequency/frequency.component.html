@@ -1,5 +1,19 @@
-<div class="container cardContainer" >
-    <div *ngFor="let item of items">
+<div class="container cardContainer" *ngIf="showAll">
+    <div *ngFor="let item of items" >
+        <div class="card-body cardWrapper">
+        <div class="left">
+            <audio controls>
+            <source src={{item.url}} type="audio/mpeg">
+            </audio>
+        </div>
+        <div class="right">
+            <h2>{{item.name}}</h2>
+        </div>
+        </div>
+    </div>
+</div>
+<div class="container cardContainer" *ngIf="!showAll">
+    <div *ngFor="let item of items" >
         <div class="card-body cardWrapper" *ngIf="item.id == itemShowing">
         <div class="left">
             <audio controls>
@@ -12,4 +26,28 @@
         </div>
     </div>
 </div>
-<div style="padding: 30px;"><button type="button" class="btn btn-primary" (click)="selectItem()">Generate</button></div>
+<div style="padding: 30px;">
+    <input
+    name="display"
+    id="display"
+    type="checkbox"
+    [(ngModel)]="showAll"/>
+    <label for="display">show all</label><br>
+</div>
+<div style="padding: 30px;" *ngIf="!showAll"><button type="button" class="btn btn-primary" (click)="selectItem()">Generate</button></div>
+
+<div class="container cardContainer">
+    <div *ngFor="let item of items2" >
+        <div class="card-body cardWrapper" *ngIf="item.id == itemShowing1">
+        <div class="left">
+            <audio controls>
+            <source src={{item.url}} type="audio/mpeg">
+            </audio>
+        </div>
+        <div class="right">
+            <h2>{{item.name}}</h2>
+        </div>
+        </div>
+    </div>
+</div>
+<div style="padding: 30px;" *ngIf="!showAll"><button type="button" class="btn btn-primary" (click)="selectItem1()">Generate</button></div>
